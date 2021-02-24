@@ -55,7 +55,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {\n    let $ul = $('<ul>');\n    $ul.attr('display','flex');\n    $ul.attr('flex-wrap','wrap');\n    this.$el.append($('<ul>'));\n\n    for (let index = 0; index < 9; index++) {\n      $ul.append($('<li>'))\n    }\n  }\n  \n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n    this.setupBoard();\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {\n    let $ul = $('<ul>');\n    $ul.css('display','flex');\n    $ul.css('flex-wrap','wrap');\n    \n    for (let index = 0; index < 9; index++) {\n      $ul.append($('<li>'));\n    }\n    this.$el.append($ul);\n    let $li = $(\"li\");\n    $li.text(\"Test\");\n  }\n  \n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 

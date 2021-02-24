@@ -2,6 +2,7 @@ class View {
   constructor(game, $el) {
     this.game = game;
     this.$el = $el;
+    this.setupBoard();
   }
 
   bindEvents() {}
@@ -10,13 +11,15 @@ class View {
 
   setupBoard() {
     let $ul = $('<ul>');
-    $ul.attr('display','flex');
-    $ul.attr('flex-wrap','wrap');
-    this.$el.append($('<ul>'));
-
+    $ul.css('display','flex');
+    $ul.css('flex-wrap','wrap');
+    
     for (let index = 0; index < 9; index++) {
-      $ul.append($('<li>'))
+      $ul.append($('<li>'));
     }
+    this.$el.append($ul);
+    let $li = $("li");
+    $li.text("Test");
   }
   
 }
