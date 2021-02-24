@@ -26,7 +26,7 @@ class View {
         
       }
       catch(err) {
-        alert(err);
+        alert("That " + err.msg.toLowerCase());
       }
 
     });
