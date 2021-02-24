@@ -1,0 +1,17 @@
+li {
+    background-color: gray;
+    list-style: none;
+    border: solid black;
+
+}
+li:hover {
+    background-color: yellow;
+}
+li.white {
+    background-color: white;
+    display: flex;
+    font-size: 60px;
+    justify-content: center;
+    align-items: center;
+}
+

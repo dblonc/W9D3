@@ -7,7 +7,30 @@ class View {
   }
   
   
-  bindEvents() {}
+  bindEvents() {
+    const $ul = $("ul");
+    // $ul.on('mouseenter', "li", event => $(event.currentTarget).css('background-color', 'yellow'));
+    // $ul.on('mouseleave', "li", event => $(event.currentTarget).css('background-color', 'gray'));
+    $ul.on("click", "li", event => {
+      const $li = $(event.currentTarget);
+      const pos = $li.data("pos");
+      try {
+        const currentPlayer = this.game.currentPlayer
+        this.game.playMove(pos);
+        $li.text(currentPlayer);
+        $li.addClass("white");
+        if (this.game.isOver()) {
+          alert(currentPlayer.toUpperCase() + " wins!");
+          return;
+        }
+        
+      }
+      catch(err) {
+        alert(err);
+      }
+
+    });
+  }
   
   makeMove($square) {}
   
@@ -32,9 +55,9 @@ class View {
     let $li = $("li");
     $li.css('width',View.SQSIDE);
     $li.css('height',View.SQSIDE);
-    $li.css('background-color','gray');
-    $li.css('list-style','none');
-    $li.css('border','solid black');
+    // $li.css('background-color','gray');
+    // $li.css('list-style','none');
+    // $li.css('border','solid black');
     $($li[0]).css('border-width', View.BORDER+'px ' + (View.BORDER / 2) + 'px ' +(View.BORDER/2) +"px " + (View.BORDER) +"px");
     $($li[1]).css('border-width', View.BORDER+'px ' + (View.BORDER / 2) + 'px ' +(View.BORDER/2) +"px " + (View.BORDER/2) +"px");
     $($li[2]).css('border-width', View.BORDER+'px ' + (View.BORDER) + 'px ' +(View.BORDER/2) +"px " + (View.BORDER/2) +"px");
@@ -44,8 +67,14 @@ class View {
     $($li[6]).css('border-width', (View.BORDER/2)+'px ' + (View.BORDER / 2) + 'px ' +(View.BORDER) +"px " + (View.BORDER) +"px");
     $($li[7]).css('border-width', (View.BORDER/2)+'px ' + (View.BORDER / 2) + 'px ' +(View.BORDER) +"px " + (View.BORDER/2) +"px");
     $($li[8]).css('border-width', (View.BORDER/2)+'px ' + (View.BORDER) + 'px ' +(View.BORDER) +"px " + (View.BORDER/2) +"px");
-    $li.on('mouseenter',event => $(event.currentTarget).css('background-color','yellow'));
-    $li.on('mouseleave',event => $(event.currentTarget).css('background-color','gray'));
+    for (let x = 0; x < 3; x++) {
+      for (let y = 0; y < 3; y++) {
+        $($li[(3*x)+y]).data("pos", [x,y]);
+      }
+    }
+    this.bindEvents();
+    // $ul.on('mouseenter', "li", event => $(event.currentTarget).css('background-color','yellow'));
+    // $ul.on('mouseleave', "li", event => $(event.currentTarget).css('background-color','gray'));
   }
   
 }
