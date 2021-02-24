@@ -12,6 +12,13 @@ class View {
   makeMove($square) {}
   
   setupBoard() {
+    const $h1 = $('h1');
+    $h1.css('display','flex');
+    $h1.css('justify-content', 'center');
+    $h1.css('font-size', '60px');
+    $h1.css('margin-bottom', '20px');
+    $h1.css('width', View.BWIDTH);
+    $h1.css('padding-inline-start', '40px');
     let $ul = $('<ul>');
     $ul.css('display','flex');
     $ul.css('flex-wrap','wrap');
@@ -37,6 +44,8 @@ class View {
     $($li[6]).css('border-width', (View.BORDER/2)+'px ' + (View.BORDER / 2) + 'px ' +(View.BORDER) +"px " + (View.BORDER) +"px");
     $($li[7]).css('border-width', (View.BORDER/2)+'px ' + (View.BORDER / 2) + 'px ' +(View.BORDER) +"px " + (View.BORDER/2) +"px");
     $($li[8]).css('border-width', (View.BORDER/2)+'px ' + (View.BORDER) + 'px ' +(View.BORDER) +"px " + (View.BORDER/2) +"px");
+    $li.on('mouseenter',event => $(event.currentTarget).css('background-color','yellow'));
+    $li.on('mouseleave',event => $(event.currentTarget).css('background-color','gray'));
   }
   
 }
