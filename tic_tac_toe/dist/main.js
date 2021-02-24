@@ -55,7 +55,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n    this.setupBoard();\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {\n    let $ul = $('<ul>');\n    $ul.css('display','flex');\n    $ul.css('flex-wrap','wrap');\n    \n    for (let index = 0; index < 9; index++) {\n      $ul.append($('<li>'));\n    }\n    this.$el.append($ul);\n    let $li = $(\"li\");\n    $li.text(\"Test\");\n  }\n  \n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n    this.setupBoard();\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {\n    let $ul = $('<ul>');\n    $ul.css('display','flex');\n    $ul.css('flex-wrap','wrap');\n    $ul.css('width', '500px');\n    $ul.css('padding', '0px');\n    $ul.css('margin', '0px');\n    for (let index = 0; index < 9; index++) {\n      $ul.append($('<li>'));\n    }\n    this.$el.append($ul);\n    let $li = $(\"li\");\n    $li.css('width','150px');\n    $li.css('height','150px');\n    $li.css('background-color','gray');\n    $li.css('list-style','none');\n    $li.css('border','5px solid black');\n    $li.text(\"Test\");\n  }\n  \n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 
